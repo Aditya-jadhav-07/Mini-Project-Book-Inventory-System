@@ -1,0 +1,10 @@
+Flask
+mysql-connector-python
+
+
+http://127.0.0.1:5000/ → Frontend website
+http://127.0.0.1:5000/api/books → Books API
+/assets/css/style.css → Frontend CSS
+/assets/js/script.js → Frontend JavaScript
+
+py -m flask --app backend.run run --debug <---- query to run the program

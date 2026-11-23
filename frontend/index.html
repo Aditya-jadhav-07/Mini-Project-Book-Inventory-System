@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Inventory Management</title>
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+    <div class="dashboard">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="logo-icon">B</span>
+                <h2>BookStore</h2>
+            </div>
+
+            <nav class="navigation">
+                <a href="#" class="nav-link active">
+                    <span>▦</span> Dashboard
+                </a>
+
+                <a href="#inventory" class="nav-link">
+                    <span>▤</span> Books Inventory
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <p>Book Inventory System</p>
+                <small>Version 1.0</small>
+            </div>
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Header -->
+            <header class="topbar">
+                <div>
+                    <h1>Dashboard</h1>
+                    <p>Manage your books and inventory</p>
+                </div>
+
+                <div class="profile">
+                    <span class="profile-icon">A</span>
+                    <span>Administrator</span>
+                </div>
+            </header>
+
+
+            <!-- Dashboard Content -->
+            <section class="content">
+
+                <div class="welcome-section">
+                    <div>
+                        <h2>Welcome to Book Inventory</h2>
+                        <p>Keep track of your books in one place.</p>
+                    </div>
+
+                    <button class="primary-btn" id="openAddModal">
+                        + Add New Book
+                    </button>
+                </div>
+
+
+                <!-- Summary Cards -->
+                <div class="stats-container">
+
+                    <div class="stat-card">
+                        <div class="stat-icon blue">▤</div>
+                        <div>
+                            <p>Total Books</p>
+                            <h2 id="totalBooks">0</h2>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon green">▣</div>
+                        <div>
+                            <p>Total Copies</p>
+                            <h2 id="totalCopies">0</h2>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon orange">▦</div>
+                        <div>
+                            <p>Categories</p>
+                            <h2 id="totalCategories">0</h2>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Inventory Table -->
+                <section class="inventory-section" id="inventory">
+
+                    <div class="section-header">
+                        <div>
+                            <h2>Books Inventory</h2>
+                            <p>View and manage all your books.</p>
+                        </div>
+
+                        <div class="search-box">
+                            <input
+                                type="text"
+                                id="searchInput"
+                                placeholder="Search books..."
+                            >
+                        </div>
+                    </div>
+
+
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Book Name</th>
+                                    <th>Author</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="booksTableBody">
+                                <!-- Books will be loaded using JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                </section>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- Add / Edit Book Modal -->
+    <div class="modal-overlay" id="bookModal">
+
+        <div class="modal">
+
+            <div class="modal-header">
+                <div>
+                    <h2 id="modalTitle">Add New Book</h2>
+                    <p>Enter the book details below.</p>
+                </div>
+
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+
+
+            <form id="bookForm">
+
+                <input type="hidden" id="bookId">
+
+                <div class="form-group">
+                    <label for="bookName">Book Name</label>
+                    <input
+                        type="text"
+                        id="bookName"
+                        placeholder="Enter book name"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="author">Author</label>
+                    <input
+                        type="text"
+                        id="author"
+                        placeholder="Enter author name"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <input
+                        type="text"
+                        id="category"
+                        placeholder="Enter book category"
+                    >
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="price">Price (₹)</label>
+                        <input
+                            type="number"
+                            id="price"
+                            placeholder="Enter price"
+                            min="0"
+                            step="0.01"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quantity">Quantity</label>
+                        <input
+                            type="number"
+                            id="quantity"
+                            placeholder="Enter quantity"
+                            min="0"
+                            step="1"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+
+                <div class="modal-actions">
+                    <button type="button" class="cancel-btn" id="cancelModal">
+                        Cancel
+                    </button>
+
+                    <button type="submit" class="primary-btn" id="saveBookBtn">
+                        Save Book
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+  <script src="/assets/js/script.js"></script>
+
+</body>
+</html>
